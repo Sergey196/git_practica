@@ -1,9 +1,1 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-mastercard_maestro.v1.0 implemented
-=======
-mir_debit.v1.0 implemented
->>>>>>> mir
-=======
-visa_gold.v1.0 implemented
->>>>>>> visa
+full version 1.0
