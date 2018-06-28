@@ -1,1 +1,1 @@
- visa_clasic.v1.0 implemented
+visa_celectron.v1.0 implemented
