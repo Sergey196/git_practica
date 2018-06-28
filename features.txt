@@ -1,1 +1,1 @@
-mir_clasic.v1.0 implemented
+mir_premium.v1.0 implemented
