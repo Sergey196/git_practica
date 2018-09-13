@@ -3,9 +3,6 @@ package com.epam.codegenerator;
 import com.epam.codegenerator.card.Card;
 import com.epam.codegenerator.creator.CardCreator;
 import com.epam.codegenerator.types.cards.TypesCards;
-
-import java.util.Arrays;
-
 import org.apache.log4j.Logger;
 
 /**
