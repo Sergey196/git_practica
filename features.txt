@@ -1,1 +1,2 @@
-full version 2.0
+add log4j
+new Junit tests

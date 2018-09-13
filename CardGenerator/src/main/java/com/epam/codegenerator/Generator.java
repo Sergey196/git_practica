@@ -1,15 +1,7 @@
 package com.epam.codegenerator;
 
-import com.epam.codegenerator.factory.method.CardFactory;
-import com.epam.codegenerator.factory.method.master.MasterElectronicFactory;
-import com.epam.codegenerator.factory.method.master.MasterMaestroFactory;
-import com.epam.codegenerator.factory.method.master.SimpleMasterFactory;
-import com.epam.codegenerator.factory.method.mir.MirClasicFactory;
-import com.epam.codegenerator.factory.method.mir.MirDebitFactory;
-import com.epam.codegenerator.factory.method.mir.MirPremiumFactory;
-import com.epam.codegenerator.factory.method.visa.VisaClasicFactory;
-import com.epam.codegenerator.factory.method.visa.VisaElectronFactory;
-import com.epam.codegenerator.factory.method.visa.VisaGoldFactory;
+import com.epam.codegenerator.card.Card;
+import com.epam.codegenerator.creator.CardCreator;
 import com.epam.codegenerator.types.cards.TypesCards;
 
 import java.util.Arrays;
@@ -21,6 +13,8 @@ import org.apache.log4j.Logger;
  */
 public class Generator {
 	
+	private final static int LENGTH = 16;
+	
 	/**
 	 * loger
 	 */
@@ -30,67 +24,48 @@ public class Generator {
 	 * Client main method
 	 */
     public static void main(String[] args) {
-    	
-		for (int i = 0; i < args.length; i++) {
-			int[] codeCard = typeSearch(args[i]);
-			System.out.print("Card code: ");
-			for (int j = 0; j < codeCard.length; j++) {
-				//System.out.print("Card code: " + codeCard[j]);
-				System.out.print(codeCard[j]);
-			}
-			System.out.println("\n");
-			
-		}
-    }
-    
-	/**
-	 * Return card code
-	  @param name of type card
-	  @return card code
-	 */
-    private static int[] typeSearch(String type) {
     	Generator generator = new Generator();
-    	return generator.generate(TypesCards.valueOf(type));
+		for (int i = 0; i < args.length; i++) {
+			String codeCard = generator.getCardNumber(args[i]);
+			System.out.print("Card code: " + codeCard + "\n");			
+		}
     }
     
 	/**
 	 * Create card code
 	 * @param type of card
 	 */
-    public int[] generate(TypesCards types) {
-    	logger.info("start of card generation type " + types);
-    	int[] codeCard = createCards(types).createCodeCard();
-    	logger.info("finished of code generation code card = " + Arrays.toString(codeCard));
-    	return codeCard;
+    public String getCardNumber(String type) {
+    	logger.info("start of card generation type " + type);
+    	
+    	Card card = getCard(type, LENGTH);
+    	String code = null;
+    	
+    	if(card != null) {
+    		code = getCard(type, LENGTH).toString();
+    		logger.info("finished of code generation code card = " + code);
+    	} else {
+    		code = "Could not generate card";
+    	}
+    	
+    	return code;
     }
     
 	/**
-	 * Create card factory
-	 * @param type of card
+	 * get card
+	  @param type type of card
+	  @param length length of card
+	  @return card
 	 */
-    private CardFactory createCards(TypesCards type) {
-         
-		switch (type) {
-			case MIR_CLASIC:
-				return new MirClasicFactory();
-			case MIR_DEBIT:
-				return new MirDebitFactory();
-			case MIR_PREMIUM:
-				return new MirPremiumFactory();
-			case VISA_CLASIC:
-				return new VisaClasicFactory();
-			case VISA_ELECTRON:
-				return new VisaElectronFactory();
-			case VISA_GOLD:
-				return new VisaGoldFactory();
-			case MASTER_ELECTRONIC:
-				return new MasterElectronicFactory();
-			case MASTER_MAESTRO:
-				return new MasterMaestroFactory();
-			case SIMPLE_MASTER:
-				return new SimpleMasterFactory();
-			default:
-				return null;
-		}
+    public Card getCard(String type, int length) {
+    	CardCreator cardBilder = new CardCreator();
+    	Card card = null;
+    	try {
+    		card = cardBilder.createCardCode(16, TypesCards.valueOf(type).getCodeTypeCard());
+    	} catch(RuntimeException e) {
+    		logger.error("No card from such a payment system: " + type);
+    	}
+		return card;
     }
+    
 }
