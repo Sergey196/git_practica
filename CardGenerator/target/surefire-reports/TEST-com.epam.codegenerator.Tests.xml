@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="com.epam.codegenerator.Tests" time="0.331" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="com.epam.codegenerator.Tests" time="0.164" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="9.0.4+11"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-9.0.4\bin"/>
     <property name="user.country.format" value="RU"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\epam\Git\git practice\CardGenerator"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\Sergey_Utkin\eclipse-workspace\git result.zip_expanded\CardGenerator"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\epam\Git\git practice\CardGenerator"/>
+    <property name="user.dir" value="C:\Users\Sergey_Utkin\eclipse-workspace\git result.zip_expanded\CardGenerator"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="java.runtime.version" value="9.0.4+11"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
@@ -47,7 +47,7 @@
     <property name="java.class.path" value="C:\Program Files\apache-maven-3.5.3\bin\..\boot\plexus-classworlds-2.5.2.jar"/>
     <property name="java.vm.specification.version" value="9"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher install"/>
     <property name="java.home" value="C:\Program Files\Java\jdk-9.0.4"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -66,7 +66,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.epam.codegenerator.Tests" name="testCardParametr" time="0.162"/>
-  <testcase classname="com.epam.codegenerator.Tests" name="testCardResult" time="0.169"/>
+  <testcase classname="com.epam.codegenerator.Tests" name="testCardParametr" time="0.052"/>
+  <testcase classname="com.epam.codegenerator.Tests" name="testCardResult" time="0.112"/>
   <testcase classname="com.epam.codegenerator.Tests" name="testAlgorithmLuhn" time="0"/>
 </testsuite>

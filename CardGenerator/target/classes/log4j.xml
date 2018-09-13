@@ -20,13 +20,13 @@
         </layout>
     </appender>
     
-    <logger name="com.epam.codegenerator.factory.bilder" additivity="false">
+    <logger name="com.epam.codegenerator.bilder" additivity="false">
         <level value="DEBUG"/>
         <appender-ref ref="FileAppender"/>
     </logger>
 
     <root>
-        <priority value="INFO"/>
+        <priority value="DEBUG"/>
         <appender-ref ref="ConsoleAppender" />
     </root>
 

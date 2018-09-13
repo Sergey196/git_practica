@@ -1,32 +1,34 @@
 package com.epam.codegenerator.card;
 
-import com.epam.codegenerator.factory.bilder.CardBilder;
+import java.util.Arrays;
 
 /**
- * Card interface
+ * Card class
  */
-public abstract class Card {
+public class Card {
 
-	/*Full length card*/
-	private final int CARD_LENGTH = 16;
-	/*Type of card*/
-	private int[] codeTypeCard;
+	/*code of card*/
+	private int[] codeCard;
 	
 	/**
-	 * Set type of card
+	 * Set code of card
 	 */	
-	public void setCodeTypeCard(int[] codeTypeCard) {
-		this.codeTypeCard = codeTypeCard;
+	public void setCodeCard(int[] codeCard) {
+		this.codeCard = codeCard;
 	}
 	
 	/**
-	 * Make card
-	  @return card code
+	 * Get code of card
 	 */	
-    public int[] makeCard() {
-		CardBilder factory = new CardBilder();
-		factory.createCode(CARD_LENGTH, this.codeTypeCard);
-		factory.createCard();
-		return factory.getResult();
-    }
+	public int[] getCodeCard() {
+		return this.codeCard;
+	}
+	
+	/**
+	 * to string format
+	 */	
+	@Override
+	public String toString() {
+		return Arrays.toString(codeCard);
+	}
 }
